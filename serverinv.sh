@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Description: script to audit a newly installed server
-#Author: brice
+#Author: Lionel
 #Date: april 2021
 
 ## Check the OS version
