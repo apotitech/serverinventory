@@ -1,35 +1,35 @@
 #!/bin/bash
 
-#Description: script to audit a newly installed server
+#Description: Script to audit a Server
 #Author: Lionel
-#Date: april 2021
+#Date: April 2021
 
 ## Check the OS version
 
-os=$(cat /etc/*release | head -1)
+os=`cat /etc/*release | head -1`
 echo " The OS is ${os} "
 
 sleep 1
 
 # Check the size of the memory
 
-mem=$(free -m |grep Mem | awk '{print$2}')
+mem=`free -m |grep Mem | awk '{print$2}'`
 echo " The total memory size is ${mem}"
 
 sleep 1
 
-## The size of the hard drive
-hd=$(lsblk | grep disk| awk '{print$4}')
+## Hard Drive space
+hd=`lsblk | grep disk| awk '{print$4}'`
 echo " The hard drive size is ${hd}"
 
-## The cpu speed
-sp=$(lscpu | grep "CPU MHz" | awk '{print$3}')
+## The CPU Speed
+sp=`lscpu | grep "CPU MHz" | awk '{print$3}'`
 echo " The cpu speed is ${sp} MHz"
 
 sleep 1
 
-## The kernel version
-kn=$(uname -r | awk -F- '{print$1}')
+## The Kernel version
+kn=`uname -r | awk -F- '{print$1}'`
 echo " The kernel version is ${kn}"
 
 sleep 1
@@ -44,8 +44,8 @@ sleep 1
 ## The Hostname
 echo " The hostname is $HOSTNAME "
 
-## The ip address
-ip=$(ip address show dev enp0s3 | grep inet | head -1 | awk '{print$2}')
+## The IP address
+ip=`ip address show dev enp0s3 | grep inet | head -1 | awk '{print$2}'`
 echo " The ip address is ${ip} "
 
 sleep 1
